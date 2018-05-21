@@ -1,0 +1,26 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C++ Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.2.199 Build 20180210
+
+Compiler options: -DNUMS=65536000 -DNUMT=8 -o Project5 -O3 -lm -qopenmp -align -qopt-report=3 -qopt-report-phase=vec -no-vec
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Project5.cpp(24,2)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between LOW (27:10) and seed (75:19)
+LOOP END
+
+LOOP BEGIN at Project5.cpp(37,2)
+   remark #15523: loop was not vectorized: loop control variable t was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+
+LOOP BEGIN at Project5.cpp(42,3)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+===========================================================================
