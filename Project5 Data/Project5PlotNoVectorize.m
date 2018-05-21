@@ -20,19 +20,21 @@ color = linspecer(length(arraySize));
 
 for i=1:length(arraySize)
     
-    nodeLegend = [nodeLegend, strcat(string(arraySize(i)/1000000), " Million Nodes")];
+    nodeLegend = [nodeLegend, strcat(string(arraySize(i)/1000000), " Million Entries")];
     
 end
 
 figure
 plot(arraySize,peakPerformance, 'LineWidth',1.2)
 xlabel('Array Size')
-ylabel('Peak Performance, MegaHeights/Sec')
+ylabel('Peak Performance, MegaRoots/Sec')
 legend(threadLegend,'Location','NorthEastOutside')
+axis([-inf,inf,-inf,inf])
 
 figure
 axes('NextPlot','replacechildren', 'ColorOrder',color); 
 plot(threads,peakPerformance', 'LineWidth',1.2)
 xlabel('Number of Threads')
-ylabel('Peak Performance, MegaHeights/Sec')
+ylabel('Peak Performance, MegaRoots/Sec')
 legend(nodeLegend,'Location','NorthEastOutside')
+axis([-inf,inf,-inf,inf])
